@@ -68,6 +68,47 @@ class LinkedList:
             current_node = current_node.next
         return total
 
+    def count_nodes(self):
+        current_node = self.head
+        total = 0
+        while current_node:
+            total += 1
+            current_node = current_node.next
+
+        return total
+
+    def get_first(self):
+        return self.head.value
+
+    def get_last(self):
+        current_node = self.head
+        while current_node.next:
+            current_node = current_node.next
+        return current_node.value
+
+    def is_empty(self):
+        return self.head is None
+
+    def count_occurrences(self, value):
+        current_node = self.head
+        total = 0
+        while current_node:
+            if value == current_node.value:
+                total += 1
+            current_node = current_node.next
+        return total
+
+    def insert_after_value(self, target_value, new_value):
+        current_node = self.head
+        # Find the target value's node
+        while current_node:
+            if current_node.value == target_value:
+                new_node = Node(new_value)
+                new_node.next = current_node.next
+                current_node.next = new_node
+                break
+            current_node = current_node.next
+
 
 # 1 - Count even numbers
 print("1 - Count even numbers")
@@ -107,4 +148,63 @@ sum_list.insert_at_start(10)
 sum_list.insert_at_end(20)
 sum_list.insert_at_end(30)
 sum_list.print_nodes()
-print(sum_list.sum_values())
+print(sum_list.sum_values(), end="\n\n")
+
+# 5 - Count Nodes
+print("5 - Count Nodes")
+count_nodes = LinkedList()
+count_nodes.insert_at_start(10)
+count_nodes.insert_at_end(20)
+count_nodes.insert_at_end(30)
+count_nodes.print_nodes()
+print(count_nodes.count_nodes(), end="\n\n")
+
+# 6 - Get First Value
+print("6 - Get First Value")
+first_value_list = LinkedList()
+first_value_list.insert_at_start(10)
+first_value_list.insert_at_end(20)
+first_value_list.insert_at_end(30)
+first_value_list.print_nodes()
+print(first_value_list.get_first(), end="\n\n")
+
+# 7 - Get Last Value
+print("7 - Get Last Value")
+last_value_list = LinkedList()
+last_value_list.insert_at_start(10)
+last_value_list.insert_at_end(20)
+last_value_list.insert_at_end(30)
+last_value_list.print_nodes()
+print(last_value_list.get_last(), end="\n\n")
+
+# 8 - Check If List Is Empty
+print("8 - Check If List Is Empty")
+empty_list = LinkedList()
+empty_list.print_nodes()
+print(empty_list.is_empty(), end="\n\n")
+non_empty_list = LinkedList()
+non_empty_list.insert_at_start(10)
+non_empty_list.print_nodes()
+print(non_empty_list.is_empty(), end="\n\n")
+
+# 9 - Count Occurrences
+print("9 - Count Occurrences")
+occurrence_list = LinkedList()
+occurrence_list.insert_at_start(10)
+occurrence_list.insert_at_end(20)
+occurrence_list.insert_at_end(10)
+occurrence_list.insert_at_end(30)
+occurrence_list.insert_at_end(10)
+occurrence_list.print_nodes()
+print(occurrence_list.count_occurrences(10), end="\n\n")
+
+# 10 - Insert After Value
+print("10 - Insert After Value")
+insert_after_list = LinkedList()
+insert_after_list.insert_at_start(10)
+insert_after_list.insert_at_end(20)
+insert_after_list.insert_at_end(30)
+insert_after_list.print_nodes()
+insert_after_list.insert_after_value(20, 25)
+insert_after_list.print_nodes()
+print("Done", end="\n\n")
