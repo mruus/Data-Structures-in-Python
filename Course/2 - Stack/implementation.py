@@ -3,6 +3,9 @@
 # ==========================================================
 
 
+from mailbox import linesep
+
+
 class Stack:
     """LIFO data structure."""
 
@@ -87,10 +90,20 @@ class LinkedListStack:
 # USAGE EXAMPLE
 # ==========================================================
 
-stack = Stack()
-stack.push(10)
-stack.push(20)
-stack.push(30)
-print(stack.pop())  # 30
-print(stack.peek())  # 20
-print(stack.size())  # 2
+if __name__ == "__main__":
+    stack = Stack()
+    stack.push(10)
+    stack.push(20)
+    stack.push(30)
+    print(stack.pop())  # 30
+    print(stack.peek())  # 20
+    print(stack.size())  # 2
+
+
+linked_stack = LinkedListStack()
+linked_stack.push(10)
+linked_stack.push(20)
+linked_stack.push(30)
+print(linked_stack.pop())  # 30
+print(linked_stack.peek())  # 20
+print(linked_stack.size())  # 2
